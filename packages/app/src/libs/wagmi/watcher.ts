@@ -1,6 +1,7 @@
 import { watchAccount } from '@wagmi/core';
 
 import { wagmiConfig } from './client';
+import { account } from '$stores/stores';
 
 
 let isWatching = false;
@@ -12,6 +13,7 @@ export async function startWatching() {
     unWatchAccount = watchAccount(wagmiConfig, {
       onChange(data) {
         console.log("Account Changed", data);
+        account.set(data);
       },
     });
 

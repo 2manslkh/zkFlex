@@ -2,12 +2,12 @@
   import { createEventDispatcher, onMount } from 'svelte';
   import { readable, writable } from 'svelte/store';
   import { MOCK_TOKENS } from '../../mocks';
-  import type { Token } from '$types/types';
+  import type { Token } from '$types';
 
   const dispatch = createEventDispatcher();
 
   let inputValue = '';
-  let recommendations = writable<string[]>([]);
+  let recommendations = writable<Token[]>([]);
   let hideDropdown = false;
 
   // Mock data for recommendations
@@ -15,16 +15,35 @@
 
   // Function to filter recommendations based on input value
   function filterRecommendations(value: string) {
-    const mockRecommendationsAddresses = mockRecommendations.map((item) => item.address);
-    const filtered = mockRecommendationsAddresses.filter((item) => item.toLowerCase().includes(value.toLowerCase()));
-    recommendations.set(filtered);
+    // const mockRecommendationsAddresses = mockRecommendations.map((item) => item.address);
+    // const filtered = mockRecommendationsAddresses.filter((item) => item.toLowerCase().includes(value.toLowerCase()));
+    // const filtered = mockRecommendations.filter((item) =>
+    //   item.address.toLowerCase().includes(value.address.toLowerCase()),
+    // );
+
+    let searchTerm = value.toLowerCase();
+    let filtered = [];
+    for (const [address, token] of Object.entries(MOCK_TOKENS)) {
+      const { name, symbol, address } = token;
+      if (
+        name.toLowerCase().includes(searchTerm) ||
+        symbol.toLowerCase().includes(searchTerm) ||
+        address.toLowerCase().includes(searchTerm)
+      ) {
+        // return address;
+        filtered.push(MOCK_TOKENS[address]);
+      }
+    }
+    console.log('🚀 | filterRecommendations | filtered:', filtered);
+
+    return filtered; // Return null if no match found
   }
 
   // Update recommendations when input value changes
   function handleInputChange(event: Event) {
     const target = event.target as HTMLInputElement;
     inputValue = target.value;
-    filterRecommendations(inputValue);
+    $recommendations = filterRecommendations(inputValue);
     hideDropdown = false; // Show dropdown when input changes
   }
 
@@ -56,9 +75,16 @@
         : ''}">
       {#each $recommendations as recommendation}
         <li class="p-2 hover:text-secondary cursor-pointer w-full">
-          <button on:click={() => handleSelect(recommendation)}>
-            {recommendation}
-          </button>
+          <button on:click={() => handleSelect(recommendation.address)}>
+            <div class="flex gap-2 items-center">
+              <div class="avatar">
+                <div class="size-4">
+                  <img src={recommendation.logoURI} alt="logo" />
+                </div>
+              </div>
+              {recommendation.name}
+              {recommendation.address}
+            </div></button>
         </li>
       {/each}
     </ul>

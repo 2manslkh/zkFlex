@@ -14,7 +14,7 @@
   <!-- Middle Section -->
   <div class="flex items-center justify-center h-10 gap-2 lg:gap-8 body-bold">
     {#each NavigationData as data}
-      <a href={data.url} class="w-fit">{data.label}</a>
+      <a href={data.url} class="w-fit whitespace-nowrap">{data.label}</a>
     {/each}
   </div>
 

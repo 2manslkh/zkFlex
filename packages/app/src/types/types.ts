@@ -17,7 +17,7 @@ export type Token = {
     logoURI: string;
 };
 
-export type TokenList = { [key: Address]: Token; }
+export type TokenList = Record<Address, Token>
 
 export type Address = string;
 

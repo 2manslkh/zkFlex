@@ -1,4 +1,4 @@
-import type { Token, TokenList } from "$types/types";
+import type { Token, TokenList } from "$types";
 
 export const MOCK_TOKENS: TokenList =
 {

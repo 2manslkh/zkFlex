@@ -1,4 +1,4 @@
-import type { TokenBalance } from "$types/types";
+import type { TokenBalance } from "$types";
 
 export const MOCK_BALANCES: TokenBalance =
 {

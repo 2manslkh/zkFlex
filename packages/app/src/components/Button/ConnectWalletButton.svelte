@@ -21,9 +21,7 @@
   <button class="btn leading-[18px]" on:click={handleConnectWallet}>Connect Wallet</button>
 {:else}
   <!-- Show user address -->
-  <button
-    class="flex flex-row items-center justify-center gap-[9px] border border-black bg-white py-4 px-6 body-semibold-2 text-black text-[16px] leading-[18px]"
-    on:click={handleConfigureWallet}>
+  <button class="btn shadow-md leading-[18px]" on:click={handleConfigureWallet}>
     {shortenAddress($account.address ?? 'undefined', 4, 4)}
   </button>
 {/if}

@@ -10,4 +10,9 @@ export const NavigationData: INavigation[] = [
     url: '/',
     disabled: false,
   },
+  {
+    label: 'Flex Gallery',
+    url: '/gallery',
+    disabled: false,
+  },
 ];
