@@ -4,17 +4,6 @@
 @import './styles/override.css';
 @import './styles/colors.css';
 
-
-@font-face {
-    font-family: "Montserrat";
-    src: url("$fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
-}
-
-@font-face {
-    font-family: "ComingSoon";
-    src: url("$fonts/ComingSoon/ComingSoon-Regular.ttf");
-}
-
 /* Load custom fonts */
 @font-face {
     font-family: 'Londrina Solid';
