@@ -6,7 +6,7 @@
   import { TELEGRAM_URL, TWITTER_URL } from '$libs/socials';
 </script>
 
-<div class="flex justify-between items-center max-w-[1440px] px-4 lg:px-10 w-full py-4 text-black gap-4">
+<div class="flex bg-base-300 justify-between items-center max-w-[1440px] px-4 lg:px-10 w-full py-4 gap-4">
   <!-- Left Section -->
   <a class="flex justify-between items-start w-full" href="/">
     <div class="title-screen-bold">Title</div>
