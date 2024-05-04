@@ -65,6 +65,7 @@
         body: JSON.stringify(requestBody),
       });
       const data = await response.json();
+      console.log('🚀 | fetchData | data:', data);
 
       if (data.hash) {
         goto('/proof/' + data.hash);
