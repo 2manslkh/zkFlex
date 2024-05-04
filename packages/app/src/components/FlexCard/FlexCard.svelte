@@ -117,8 +117,20 @@
       console.log('svg saved');
     });
   });
+
+  function textToHtml(text: string) {
+    const tempElement = document.createElement('div');
+    tempElement.innerHTML = text;
+    return tempElement.firstChild;
+  }
+
+  const htmlElement = textToHtml(svg);
+
+  // Now you can append `htmlElement` to your document or manipulate it as needed
+  //   document.body.appendChild(htmlElement);
 </script>
 
 <div transition:fade={{ delay: 250, duration: 300 }}>
-  <img src={svgDataUrl} alt="gallery" />
+  <!-- <img src={htmlElement} alt="gallery" /> -->
+  {@html svg}
 </div>
