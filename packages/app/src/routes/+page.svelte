@@ -65,18 +65,6 @@
         body: JSON.stringify(requestBody),
       });
       const data = await response.json();
-      console.log('🚀 | fetchData | data:', data);
-
-      // store data to supabase
-      const { data: proof, error } = await supabaseClient.from('proofs').insert([
-        {
-          address: $account.address,
-          tokenAddress: token.address,
-          twitterName: $twitterUsername,
-          signature: signature,
-          hash: data.hash,
-        },
-      ]);
 
       if (data.hash) {
         goto('/proof/' + data.hash);
