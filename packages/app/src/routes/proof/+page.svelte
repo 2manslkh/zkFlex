@@ -1,6 +1,5 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
-  import { page } from '$app/stores';
   import { Page } from '$components/Page';
   import { verifyProof } from '$libs/zk';
   import { MetaTags } from 'svelte-meta-tags';
