@@ -33,7 +33,7 @@
       <button class="btn" on:click={handleAddMore}>Generate</button>
     </div>
 
-    <div class="flex flex-wrap gap-2">
+    <div class="flex flex-wrap items-center justify-center flex-grow gap-2 max-h-[600px] overflow-y-scroll">
       {#each cards as _card}
         <FlexCard card={_card} />
       {/each}

@@ -4,6 +4,7 @@
   import { onMount } from 'svelte';
   import { generateNounsSVG } from '$libs/nouns';
   import { trimHash } from '$libs/util/hash';
+  import { fade } from 'svelte/transition';
 
   export let card: FlexCard;
   let { proofHash, twitterName, rank, tokenName } = card;
@@ -21,7 +22,7 @@
   });
 </script>
 
-<div>
+<div transition:fade={{ delay: 250, duration: 300 }}>
   <!-- <img src={`data:image/svg+xml;base64,${svgBase64}`} alt="gallery" /> -->
   <svg width="300" viewBox="0 0 1024 768" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
     <!-- Circle -->
