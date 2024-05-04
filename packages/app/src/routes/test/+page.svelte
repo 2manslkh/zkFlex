@@ -20,39 +20,34 @@
 </script>
 
 <svelte:head>
-  <title>zkFlex - Gallery</title>
   <!-- HTML Meta Tags -->
-  <title></title>
-  <meta name="description" content="" />
+  <title>Vercel: Build and deploy the best Web experiences with The Frontend Cloud</title>
+  <meta
+    name="description"
+    content="Vercel's Frontend Cloud gives developers the frameworks, workflows, and infrastructure to build a faster, more personalized Web." />
 
   <!-- Facebook Meta Tags -->
-  <meta property="og:url" content="https://zk-flex.vercel.app/gallery" />
+  <meta property="og:url" content="https://vercel.com/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="" />
-  <meta property="og:description" content="" />
-  <!--
-  You can generate this image URL dynamically: https://ogcdn.net/e4b8c678-7bd5-445d-ba03-bfaad510c686/v4/{site_text}/{title_text}/{image_url}/og.png
-  Replace the variables in the brackets with your own values and use this URL in the image tag below this comment. Ensure values are URL encoded.
-  For more information, read: https://www.opengraph.xyz/blog/how-to-implement-dynamic-open-graph-images
--->
+  <meta property="og:title" content="Vercel: Build and deploy the best Web experiences with The Frontend Cloud" />
+  <meta
+    property="og:description"
+    content="Vercel's Frontend Cloud gives developers the frameworks, workflows, and infrastructure to build a faster, more personalized Web." />
   <meta
     property="og:image"
-    content="https://ogcdn.net/e4b8c678-7bd5-445d-ba03-bfaad510c686/v4/zk-flex.vercel.app/Get%20On%20Board%20Meta%20Ads%20Campaigns/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fdocuments%2F56188dc2-e3c3-4ce5-a8b1-1323953e37b9.jpg%3Ftoken%3DFORiB3YuXMB9HERtclPAWWBLMSBisufr3mJbjlWtsrQ%26height%3D800%26width%3D1200%26expires%3D33239445186/og.png" />
+    content="https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/4JmubmYDJnFtstwHbaZPev/23caf8c05363419bb2b94c6c53299cb0/og-dark.png" />
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta property="twitter:domain" content="zk-flex.vercel.app" />
-  <meta property="twitter:url" content="https://zk-flex.vercel.app/gallery" />
-  <meta name="twitter:title" content="" />
-  <meta name="twitter:description" content="" />
-  <!--
-  You can generate this image URL dynamically: https://ogcdn.net/e4b8c678-7bd5-445d-ba03-bfaad510c686/v4/{site_text}/{title_text}/{image_url}/og.png
-  Replace the variables in the brackets with your own values and use this URL in the image tag below this comment. Ensure values are URL encoded.
-  For more information, read: https://www.opengraph.xyz/blog/how-to-implement-dynamic-open-graph-images
--->
+  <meta property="twitter:domain" content="vercel.com" />
+  <meta property="twitter:url" content="https://vercel.com/" />
+  <meta name="twitter:title" content="Vercel: Build and deploy the best Web experiences with The Frontend Cloud" />
+  <meta
+    name="twitter:description"
+    content="Vercel's Frontend Cloud gives developers the frameworks, workflows, and infrastructure to build a faster, more personalized Web." />
   <meta
     name="twitter:image"
-    content="https://ogcdn.net/e4b8c678-7bd5-445d-ba03-bfaad510c686/v4/zk-flex.vercel.app/Get%20On%20Board%20Meta%20Ads%20Campaigns/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fdocuments%2F56188dc2-e3c3-4ce5-a8b1-1323953e37b9.jpg%3Ftoken%3DFORiB3YuXMB9HERtclPAWWBLMSBisufr3mJbjlWtsrQ%26height%3D800%26width%3D1200%26expires%3D33239445186/og.png" />
+    content="https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/4JmubmYDJnFtstwHbaZPev/23caf8c05363419bb2b94c6c53299cb0/og-dark.png" />
 
   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
 </svelte:head>
