@@ -11,9 +11,7 @@
 
 <svelte:head>
   <title>zkFlex | Proof</title>
-  <meta
-    property="og:image"
-    content={`https://uxxmxcbidkgoeortjpsx.supabase.co/storage/v1/object/public/ethsydney/${$page.params.slug}.png`} />
+  <meta property="og:image" content={`https://zkflex.lol/noun/render/${$page.params.slug}`} />
   <meta property="og:title" content="zkFlex | Proof" />
   <meta property="og:description" content="My size is size." />
   <meta property="og:url" content="https://zkflex.lol" />
