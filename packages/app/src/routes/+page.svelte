@@ -42,6 +42,7 @@
 </script>
 
 <svelte:head>
+  <title>zkFlex</title>
   <meta property="og:title" content="zkFlex" />
   <meta property="og:description" content="Your page description goes here." />
   <meta
