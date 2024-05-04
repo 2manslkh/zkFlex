@@ -21,17 +21,40 @@
 
 <svelte:head>
   <title>zkFlex - Gallery</title>
-  <meta property="og:title" content="zkFlex" />
-  <meta property="og:image" content="https://via.placeholder.com/1200x630" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="600" />
-  <meta property="og:image:alt" content="A shiny red apple with a bite taken out" />
+  <!-- HTML Meta Tags -->
+  <title></title>
+  <meta name="description" content="" />
 
-  <!-- Twitter meta tags -->
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://zk-flex.vercel.app/gallery" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <!--
+  You can generate this image URL dynamically: https://ogcdn.net/e4b8c678-7bd5-445d-ba03-bfaad510c686/v4/{site_text}/{title_text}/{image_url}/og.png
+  Replace the variables in the brackets with your own values and use this URL in the image tag below this comment. Ensure values are URL encoded.
+  For more information, read: https://www.opengraph.xyz/blog/how-to-implement-dynamic-open-graph-images
+-->
+  <meta
+    property="og:image"
+    content="https://ogcdn.net/e4b8c678-7bd5-445d-ba03-bfaad510c686/v4/zk-flex.vercel.app/Get%20On%20Board%20Meta%20Ads%20Campaigns/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fdocuments%2F56188dc2-e3c3-4ce5-a8b1-1323953e37b9.jpg%3Ftoken%3DFORiB3YuXMB9HERtclPAWWBLMSBisufr3mJbjlWtsrQ%26height%3D800%26width%3D1200%26expires%3D33239445186/og.png" />
+
+  <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Simple Preview" />
-  <meta name="twitter:description" content="This is a simple preview example." />
-  <meta name="twitter:image" content="https://via.placeholder.com/1200x630" />
+  <meta property="twitter:domain" content="zk-flex.vercel.app" />
+  <meta property="twitter:url" content="https://zk-flex.vercel.app/gallery" />
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:description" content="" />
+  <!--
+  You can generate this image URL dynamically: https://ogcdn.net/e4b8c678-7bd5-445d-ba03-bfaad510c686/v4/{site_text}/{title_text}/{image_url}/og.png
+  Replace the variables in the brackets with your own values and use this URL in the image tag below this comment. Ensure values are URL encoded.
+  For more information, read: https://www.opengraph.xyz/blog/how-to-implement-dynamic-open-graph-images
+-->
+  <meta
+    name="twitter:image"
+    content="https://ogcdn.net/e4b8c678-7bd5-445d-ba03-bfaad510c686/v4/zk-flex.vercel.app/Get%20On%20Board%20Meta%20Ads%20Campaigns/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fdocuments%2F56188dc2-e3c3-4ce5-a8b1-1323953e37b9.jpg%3Ftoken%3DFORiB3YuXMB9HERtclPAWWBLMSBisufr3mJbjlWtsrQ%26height%3D800%26width%3D1200%26expires%3D33239445186/og.png" />
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
 </svelte:head>
 
 <!-- Body -->
