@@ -2,7 +2,7 @@
   import Search from '$components/Input/Search.svelte';
   import { Page } from '$components/Page';
   import { redirect } from '@sveltejs/kit';
-  import type { Token } from '$types';
+  import type { FlexType, Token } from '$types';
   import { parseEther } from 'viem';
   import { MOCK_TOKENS, MOCK_BALANCES } from '$mocks';
   import { account } from '$stores/stores';
@@ -13,14 +13,14 @@
   let assetBalance: string = '0';
   let token: Token;
 
-  let holderStatus: 'whale' | 'shrimp' | 'grasshopper' | 'ghost' = 'ghost';
+  let holderStatus: FlexType = 'ghost';
 
   $: if (parseEther(assetBalance) > parseEther('1000')) {
     holderStatus = 'whale';
   } else if (parseEther(assetBalance) > parseEther('40')) {
-    holderStatus = 'shrimp';
+    holderStatus = 'shark';
   } else if (parseEther(assetBalance) > parseEther('0')) {
-    holderStatus = 'grasshopper';
+    holderStatus = 'dolphin';
   } else {
     holderStatus = 'ghost';
   }

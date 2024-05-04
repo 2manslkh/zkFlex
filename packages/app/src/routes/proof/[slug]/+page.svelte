@@ -5,6 +5,8 @@
   import pepe from '$images/pepe.svg';
   import { onMount } from 'svelte';
   import { MetaTags } from 'svelte-meta-tags';
+  import { draftMessage } from '$libs/twitter';
+  import { page } from '$app/stores';
 
   let svgBase64 = '';
   let bg = '';
@@ -26,6 +28,7 @@
 <!-- Body -->
 <Page>
   <div class="f-center flex-col gap-2 lg:w-[530px]">
+    <div class="display-large-medium">ZK CERTIFIED ✅</div>
     <div class="display-medium">{data.tokenAddress}</div>
     <div class="body-bold">{data.proof}</div>
     {#if svgBase64}
@@ -77,5 +80,7 @@
         </svg>
       </div>
     {/if}
+
+    <a href={draftMessage($page.url)}>SHARE</a>
   </div>
 </Page>

@@ -15,15 +15,6 @@
 <!-- Body -->
 <Page>
   <div class="f-center flex-col gap-8 lg:w-[530px]">
-    <div class="display-large-medium">Verify Proof 🤔</div>
-    <div class="flex gap-2 w-full">
-      <input
-        class="input input-primary bg-white text-black w-full"
-        placeholder="Verify Proof"
-        bind:value={inputValue}
-        on:input={handleInputChange} />
-
-      <button class="btn">Verify</button>
-    </div>
+    <div class="display-large-medium">LARPER ❌</div>
   </div>
 </Page>

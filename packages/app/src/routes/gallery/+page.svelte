@@ -7,12 +7,12 @@
   let svgBase64 = '';
   let bg = '';
 
+  let arrayOfBase64 = [];
+
   function handleGenerate() {
     let { svg, background } = generateNounSVGMock();
     svgBase64 = svg;
-    console.log('🚀 | handleGenerate | svgBase64:', svgBase64);
     bg = background;
-    console.log('🚀 | handleGenerate | background:', background);
   }
 
   onMount(() => {
@@ -37,8 +37,9 @@
 
 <!-- Body -->
 <Page>
-  <div class="f-center flex-col gap-2">
+  <div class="f-center flex-col self-start gap-2">
     <div class="display-large-medium">Gallery 🖼️</div>
+
     {#if svgBase64}
       <div>
         <!-- <img src={`data:image/svg+xml;base64,${svgBase64}`} alt="gallery" /> -->

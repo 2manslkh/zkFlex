@@ -1,6 +1,4 @@
-export function draftMessage() {
-    // Pre-draft message
-    const message = "";
+export function draftMessage(message: string) {
 
     // URL-encode the message
     const encodedMessage = encodeURIComponent(message);

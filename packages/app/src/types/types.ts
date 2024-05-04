@@ -24,3 +24,5 @@ export type Address = string;
 export type TokenBalance = {
     [key: Address]: string;
 };
+
+export type FlexType = 'whale' | 'shark' | 'dolphin' | 'shrimp' | 'ghost';
