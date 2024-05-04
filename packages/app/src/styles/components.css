@@ -504,4 +504,14 @@
   .icon-button {
     @apply bg-transparent m-0 p-0;
   }
+
+  .jiggle {
+    animation: jiggle 0.2s ease;
+}
+
+  @keyframes jiggle {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(2deg); }
+      100% { transform: rotate(-2deg); }
+  }
 }

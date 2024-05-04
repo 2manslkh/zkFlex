@@ -3,7 +3,7 @@
   import { Page } from '$components/Page';
   import { redirect } from '@sveltejs/kit';
   import type { FlexType, Token } from '$types';
-  import { parseEther, signatureToCompactSignature } from 'viem';
+  import { formatEther, parseEther, signatureToCompactSignature } from 'viem';
   import TwitterLogo from '$images/twitter.png';
   import { MOCK_TOKENS, MOCK_BALANCES } from '$mocks';
   import { account } from '$stores/stores';
@@ -17,6 +17,8 @@
   import { wagmiConfig } from '$libs/wagmi';
   import { calculateUserRank } from '$libs/util/calculateUserStatus';
   import { shortenAddress } from '$libs/util/shortenAddress';
+  import sizeissize from '$images/yoursizeisnotsize.png';
+  import { fade } from 'svelte/transition';
 
   let searching = false;
   let assetBalance: string = '0';
@@ -36,9 +38,8 @@
       token: event.detail.address,
       address: $account.address as any,
     });
-    assetBalance = balance.formatted;
+    assetBalance = formatEther(balance.value);
     searching = false;
-    console.log('🚀 | handle | searching:', searching);
   }
   async function fetchData() {
     // Get user signature
@@ -64,9 +65,24 @@
         body: JSON.stringify(requestBody),
       });
       const data = await response.json();
+      console.log('🚀 | fetchData | data:', data);
 
-      goto('/proof/' + data.hash);
-      console.log(data);
+      // store data to supabase
+      const { data: proof, error } = await supabaseClient.from('proofs').insert([
+        {
+          address: $account.address,
+          tokenAddress: token.address,
+          twitterName: $twitterUsername,
+          signature: signature,
+          hash: data.hash,
+        },
+      ]);
+
+      if (data.hash) {
+        goto('/proof/' + data.hash);
+      } else {
+        throw new Error('Error generating proof');
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -83,8 +99,12 @@
 <!-- Body -->
 <Page>
   <div class="flex flex-col gap-6 lg:w-[530px] h-full items-center">
-    <div class="f-center flex-col gap-2 pb-16 pt-10">
+    <div class="f-center flex-col gap-2 pb-2 pt-10">
       <div class="display-large-medium">zkFlex💪💪💰</div>
+      {#if !token}
+        <img transition:fade={{ delay: 250, duration: 300 }} src={sizeissize} alt="doknwon" />
+      {/if}
+
       <div class="body-bold">Show that your size is size.</div>
     </div>
     {#if $account?.isConnected}
