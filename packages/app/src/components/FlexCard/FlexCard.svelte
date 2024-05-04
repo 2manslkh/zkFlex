@@ -95,8 +95,8 @@
 
     svg = `<svg
     id="${proofHash}"
-    width="300"
-    viewBox="0 0 1024 768"
+    width="600"
+    viewBox="0 0 1200 600"
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg">
     <style>
@@ -106,10 +106,10 @@
       }
     </style>
     <rect x="0" y="0" width="100%" height="100%" fill="#${bg}" />
-    <image x="10" y="300" width="400" height="400" href="data:image/svg+xml;base64,${svgBase64}" />
-    <image x="600" y="350" width="300" height="400" href="data:image/svg+xml;base64,${pepeBase64}" />
+    <image x="10%" y="250" width="400" height="400" href="data:image/svg+xml;base64,${svgBase64}" />
+    <image x="60%" y="280" width="300" height="400" href="data:image/svg+xml;base64,${pepeBase64}" />
     <text
-      x="512"
+      x="50%"
       y="100"
       text-anchor="middle"
       fill="black"
