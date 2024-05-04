@@ -10,6 +10,12 @@ importers:
 
   packages/app:
     dependencies:
+      '@nouns/assets':
+        specifier: ^0.5.0
+        version: 0.5.0
+      '@nouns/sdk':
+        specifier: ^0.4.0
+        version: 0.4.0(bufferutil@4.0.8)(ethers@6.12.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)
       '@sveltejs/adapter-vercel':
         specifier: ^5.3.0
         version: 5.3.0(@sveltejs/kit@2.5.7(@sveltejs/vite-plugin-svelte@3.1.0(svelte@4.2.15)(vite@5.2.11(@types/node@20.12.8)(sass@1.69.5)(terser@5.31.0)))(svelte@4.2.15)(vite@5.2.11(@types/node@20.12.8)(sass@1.69.5)(terser@5.31.0)))
@@ -1818,6 +1824,17 @@ packages:
   '@nomicfoundation/solidity-analyzer@0.1.1':
     resolution: {integrity: sha512-1LMtXj1puAxyFusBgUIy5pZk3073cNXYnXUpuNKFghHbIit/xZgbk0AokpUADbNm3gyD6bFWl3LRFh3dhVdREg==}
     engines: {node: '>= 12'}
+
+  '@nouns/assets@0.5.0':
+    resolution: {integrity: sha512-WWap8jldLvoUPBjfi9r5Ulj4Q7D7NW4XIPJhmlDqR4QpAidy3h13dIKOvW0ZDtzTyOPJ+/hGQTJGc7cZckTx0g==}
+
+  '@nouns/contracts@0.3.0':
+    resolution: {integrity: sha512-l619EP77QqX0gPGw3gPfh9tgBlz5lFwK8EzB+orLJx3JrfHSUqfjjYCfZih+I++bhJuK78ro2FgFx6U0kZnXEw==}
+
+  '@nouns/sdk@0.4.0':
+    resolution: {integrity: sha512-PLRDUad/TXCsGmP2ITXkYBrwlzQfO9DaoB0xwikvNPF/Vul+rAVnsXgMf8gm5KQ8CKVlxImoEnxsL8Dcx5elAw==}
+    peerDependencies:
+      ethers: '>=5.0.0'
 
   '@openzeppelin/contracts-upgradeable@5.0.2':
     resolution: {integrity: sha512-0MmkHSHiW2NRFiT9/r5Lu4eJq5UJ4/tzlOgYXNAIj/ONkQTVnz22pLxDvp4C4uZ9he7ZFvGn3Driptn1/iU7tQ==}
@@ -9367,6 +9384,26 @@ snapshots:
       '@nomicfoundation/solidity-analyzer-win32-arm64-msvc': 0.1.1
       '@nomicfoundation/solidity-analyzer-win32-ia32-msvc': 0.1.1
       '@nomicfoundation/solidity-analyzer-win32-x64-msvc': 0.1.1
+
+  '@nouns/assets@0.5.0':
+    dependencies:
+      '@ethersproject/bignumber': 5.7.0
+      '@ethersproject/solidity': 5.7.0
+
+  '@nouns/contracts@0.3.0(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+    dependencies:
+      ethers: 5.7.2(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
+  '@nouns/sdk@0.4.0(bufferutil@4.0.8)(ethers@6.12.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)':
+    dependencies:
+      '@nouns/contracts': 0.3.0(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      ethers: 6.12.1(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
 
   '@openzeppelin/contracts-upgradeable@5.0.2(@openzeppelin/contracts@5.0.2)':
     dependencies:
