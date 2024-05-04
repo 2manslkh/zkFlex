@@ -15,6 +15,9 @@
   import { SupabaseLogin } from '$components/Supabase';
   import { twitterUsername } from '$stores/supabase';
   import { supabaseClient } from '$libs/supabase';
+  import { createConfig, getAccount, getBalance } from '@wagmi/core';
+  import { wagmiConfig } from '$libs/wagmi';
+
   let searching = false;
   let assetBalance: string = '0';
   let token: Token;
@@ -31,21 +34,15 @@
     holderStatus = 'ghost';
   }
 
-  function handle(event: any) {
-    console.log($account.address);
-
+  async function handle(event: any) {
+    token = MOCK_TOKENS[event.detail.address];
     searching = true;
-
-    // 5 second callback
-    setTimeout(() => {
-      console.log('5 seconds later');
-      token = MOCK_TOKENS[event.detail.address];
-      assetBalance = MOCK_BALANCES[event.detail.address];
-      searching = false;
-    }, 2000);
-
-    // This function should get the user's asset balance
-    // await getAssetBalance();
+    const balance = await getBalance(wagmiConfig, {
+      token: event.detail.address,
+      address: $account.address as any
+    })
+    assetBalance = balance.formatted
+    searching = false;
   }
   async function fetchData() {
     try {
@@ -129,7 +126,7 @@
         <!-- Balance -->
         <div class="flex body-bold items-center justify-start gap-4">
           <div>Balance:</div>
-          <div>{MOCK_BALANCES[token.address]}</div>
+          <div>{assetBalance}</div>
         </div>
 
         <!-- Holder Status -->

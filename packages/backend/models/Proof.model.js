@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Proof = new mongoose.Schema({
     rank: String,
-    twitter: String,
+    twitterName: String,
     tokenAddress: String,
     hash: String,
     proof: String,
