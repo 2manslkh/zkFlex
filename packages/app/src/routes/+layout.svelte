@@ -9,7 +9,6 @@
   import { startWatching as startWatchingX } from '$libs/supabase';
   import { WalletConnect } from '$components/Web3';
   import { PUBLIC_WALLETCONNECT_PROJECT_ID } from '$env/static/public';
-  import Metatags from '$components/Metatags/Metatags.svelte';
 
   onMount(() => {
     // Set theme

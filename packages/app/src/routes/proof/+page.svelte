@@ -24,7 +24,6 @@
   }
 </script>
 
-<MetaTags title="zkFlex | Proof" />
 <!-- Body -->
 <Page>
   <div class="f-center flex-col gap-8 lg:w-[530px]">
