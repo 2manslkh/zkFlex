@@ -81,6 +81,6 @@
       </div>
     {/if}
 
-    <a href={draftMessage($page.url)}>SHARE</a>
+    <a href={draftMessage($page.url.toString())}>SHARE</a>
   </div>
 </Page>
