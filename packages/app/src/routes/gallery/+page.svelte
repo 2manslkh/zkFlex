@@ -26,16 +26,15 @@
 
   <svelte:head>
     <title>zkFlex | Gallery</title>
-    <meta property="og:title" content="zkFlex" />
+    <meta property="og:image" content="https://assets.pancakeswap.finance/web/og/v2/hero.jpg" />
+    <meta property="og:title" content="zkFlex | Gallery" />
     <meta property="og:description" content="My size is size." />
-    <meta property="og:image" content="https://zkflex.lol/noun/a" />
     <meta property="og:url" content="https://zkflex.lol" />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="zkFlex" />
     <meta name="twitter:description" content="My size is size." />
-    <meta name="twitter:image" content="https://zkflex.lol/noun/a" />
   </svelte:head>
 <!-- Body -->
 <Page>
