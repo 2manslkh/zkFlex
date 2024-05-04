@@ -77,7 +77,7 @@
   async function saveSvgToSupabase(filename: string, svgData: string) {
     try {
       // Upload SVG to Supabase storage
-      const { data, error } = await supabaseClient.storage.from('ethsydney').upload(`${filename}.svg`, svgData);
+      const { data, error } = await supabaseClient.storage.from('ethsydney').upload(`${filename}.png`, svgData);
 
       if (error) {
         console.error('Error uploading SVG to Supabase:', error.message);
@@ -140,11 +140,13 @@
       const link = document.createElement('a');
       link.href = dataUrl;
       link.download = 'fileName';
-
+      saveSvgToSupabase(proofHash, dataUrl).then(() => {
+        console.log('png saved');
+      });
       // Programmatically trigger a click event on the link
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // document.body.appendChild(link);
+      // link.click();
+      // document.body.removeChild(link);
     };
 
   // Set the Image source to the SVG content
