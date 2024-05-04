@@ -332,9 +332,10 @@ app.post("/generate", async (req, res) => {
           proof: JSON.stringify(rankProof)
         })
         res.send({
-          rank,
-          symbol,
-          hash
+            rank,
+            hash,
+            twitterName,
+            tokenAddress: symbol
         })
     }else {
         res.status(500).send({
