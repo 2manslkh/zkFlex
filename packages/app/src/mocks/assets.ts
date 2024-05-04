@@ -20,9 +20,9 @@ export const MOCK_TOKENS: TokenList =
         decimals: 18,
         logoURI: "https://assets.coingecko.com/coins/images/34422/standard/MOE.png?1704821927",
     },
-    "0x0bd4887f7d41b35cd75dff9ffee2856106f86670":
+    "0x4ed4e862860bed51a9570b96d89af5e1b0efefed":
     {
-        address: "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed",
+        address: "0x4ed4e862860bed51a9570b96d89af5e1b0efefed",
         name: "Degen (Base)",
         symbol: "DEGEN",
         chain: 8453,

@@ -73,15 +73,15 @@
         : ''}">
       {#each $recommendations as recommendation}
         <li class="p-2 hover:text-secondary cursor-pointer w-full">
-          <button on:click={() => handleSelect(recommendation.address)}>
+          <button on:click={() => handleSelect(recommendation?.address)}>
             <div class="flex gap-2 items-center">
               <div class="avatar">
                 <div class="size-4">
-                  <img src={recommendation.logoURI} alt="logo" />
+                  <img src={recommendation?.logoURI} alt="logo" />
                 </div>
               </div>
-              {recommendation.name}
-              {shortenAddress(recommendation.address, 10, 8)}
+              {recommendation?.name}
+              {shortenAddress(recommendation?.address, 10, 8)}
             </div></button>
         </li>
       {/each}
