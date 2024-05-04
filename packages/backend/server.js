@@ -75,7 +75,7 @@ function selectChain(chainId) {
         case "1":
             return "https://eth.llamarpc.com";
         case "5000":
-            return "https://1rpc.io/mantle";
+            return "https://rpc.mantle.xyz";
         case "8453":
             return "https://1rpc.io/base";
         case "137":
