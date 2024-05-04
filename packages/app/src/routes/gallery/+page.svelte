@@ -23,18 +23,14 @@
   <title>zkFlex - Gallery</title>
   <meta property="og:title" content="zkFlex" />
   <meta property="og:description" content="Your page description goes here." />
-  <!-- <meta property="og:image" content="data:image/svg+xml;base64,{svgBase64}" /> -->
   <meta property="og:image:width" content="1024" />
-  <!-- Adjust image width as needed -->
   <meta property="og:image:height" content="768" />
-  <!-- Adjust image height as needed -->
   <meta property="og:url" content="https://zkflex.xyz" />
   <meta property="og:type" content="website" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="zkFlex" />
   <meta name="twitter:description" content="Your page description goes here." />
-  <!-- <meta name="twitter:image" content="data:image/svg+xml;base64,{svgBase64}" /> -->
 </svelte:head>
 
 <!-- Body -->

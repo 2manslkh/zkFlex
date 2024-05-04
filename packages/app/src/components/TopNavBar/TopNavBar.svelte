@@ -9,7 +9,7 @@
 <div class="flex bg-base-300 justify-between items-center max-w-[1440px] px-4 lg:px-10 w-full py-4 gap-4">
   <!-- Left Section -->
   <a class="flex justify-between items-start w-full" href="/">
-    <div class="title-screen-bold">Title</div>
+    <div class="title-screen-bold">zkFlex💪</div>
   </a>
   <!-- Middle Section -->
   <div class="flex items-center justify-center h-10 gap-2 lg:gap-8 body-bold">

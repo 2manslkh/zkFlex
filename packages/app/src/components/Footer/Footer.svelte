@@ -6,7 +6,7 @@
   <div class="flex flex-col lg:flex-row w-full items-center lg:items-start lg:justify-between py-6 gap-4">
     <div class="flex flex-row gap-2 lg:gap-2 w-full justify-between">
       <!-- Left Footer -->
-      <div class="title-screen-bold">LEFT FOOTER</div>
+      <div class="title-screen-bold">zkFlex💪</div>
       <!-- Right Footer -->
       <div class="lg:flex gap-2 lg:gap-8 items-center flex">
         <a class="" href={TELEGRAM_URL} target="_blank">Telegram</a>
