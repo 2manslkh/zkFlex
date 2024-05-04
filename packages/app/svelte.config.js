@@ -18,6 +18,7 @@ const config = {
       "$stores": "./src/stores/index.ts",
       "$config": "./src/app.config.ts",
       "$configs": "./src/configs/*",
+      "$const": "./src/constants/index.ts",
       "$libs/*": "./src/libs/*",
       "$types": "./src/types/index.ts",
       "$mocks": "./src/mocks/index.ts",

@@ -6,7 +6,6 @@ const base64 = "PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgdmlld0JveD0iMCAwIDMyMCAz
 export async function GET({ url }) {
     // Extract slug parameter from the request
 
-
     // Convert the base64 string to a Blob
     const blob = new Blob([Buffer.from(base64, 'base64')], { type: 'image/svg+xml' });
 

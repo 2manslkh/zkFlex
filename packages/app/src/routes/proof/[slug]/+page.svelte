@@ -52,9 +52,9 @@
   onMount(() => {
     // add timeout to ensure the svg is rendered
     setTimeout(() => {}, 5000);
-    saveSvg().then(() => {
-      console.log('svg saved');
-    });
+    // saveSvg().then(() => {
+    //   console.log('svg saved');
+    // });
   });
 </script>
 
