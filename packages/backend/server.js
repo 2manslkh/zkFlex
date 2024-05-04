@@ -66,7 +66,7 @@ app.post("/generate", async (req, res) => {
     const address = req.body.address;
     const tokenAddress = req.body.tokenAddress
     const symbol = req.body.symbol;
-    const price = 3000;
+    const price = symbol === 'PEPE' ? 0.000008322  : 0.00002449;
     let value = 0;
     const provider = new ethers.JsonRpcProvider("https://eth.llamarpc.com");
     const abi = [
@@ -291,24 +291,20 @@ app.post("/generate", async (req, res) => {
           "type": "event"
       }
   ]
-    if (tokenAddress) {
-      const erc20 = new ethers.Contract(tokenAddress, abi, provider);
-      const balance =  await erc20.balanceOf(address)
-      value = +ethers.formatEther(balance) * 1
-    } else {
-      const balance =  await provider.getBalance(address);
-      value = +ethers.formatEther(balance) * price
-    }
+    const erc20 = new ethers.Contract(tokenAddress, abi, provider);
+    const balance =  await erc20.balanceOf(address)
+    value = +ethers.formatEther(balance) * price
+
 
     let rank = 'Shrimp'
     let threshold = 0
-    if (value > 1000) {
+    if (value > 10000) {
       rank = 'Dolphin'
-      threshold = 1000
-    }
-    if (value > 10000){
-      rank = 'Whale'
       threshold = 10000
+    }
+    if (value > 100000){
+      rank = 'Whale'
+      threshold = 100000
     }
     const rankProof = await generateProof(Math.round(value), threshold);
     const hash = crypto.createHash('sha256').update(JSON.stringify(rankProof)).digest('hex');
@@ -316,12 +312,13 @@ app.post("/generate", async (req, res) => {
     await ProofModel.create({
       rank,
       hash,
-      tokenAddress: tokenAddress?tokenAddress: 'ETH',
+      tokenAddress: symbol,
       proof: JSON.stringify(rankProof)
     })
     res.send({
       rank,
-      proof: rankProof
+      symbol,
+      hash
     })
   } catch (error) {
     console.log(error)

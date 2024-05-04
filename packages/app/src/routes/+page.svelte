@@ -1,6 +1,7 @@
 <script lang="ts">
   import Search from '$components/Input/Search.svelte';
   import { Page } from '$components/Page';
+  import { redirect } from '@sveltejs/kit';
   import type { Token } from '$types';
   import { parseEther } from 'viem';
   import { MOCK_TOKENS, MOCK_BALANCES } from '$mocks';
@@ -25,7 +26,7 @@
   }
 
   function handle(event: any) {
-    console.log(event.detail);
+    console.log($account.address);
 
     searching = true;
 
@@ -39,6 +40,31 @@
 
     // This function should get the user's asset balance
     // await getAssetBalance();
+  }
+  async function fetchData() {
+    try {
+      searching = true;
+      const requestBody = {
+        message: 'Proof of ownership',
+        address: $account.address,
+        tokenAddress: token.address,
+        symbol: token.symbol
+      };
+      const response = await fetch('https://zkflex.onrender.com/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      });
+      const data = await response.json();
+      redirect(302, '/proof/'+data.hash);
+      console.log(data)
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      searching = false;
+    }
   }
 </script>
 
@@ -136,7 +162,7 @@
           {/if}
         </div>
       {/if}
-      <button class="btn">Generate Proof</button>
+      <button on:click={fetchData} class="btn">Generate Proof</button>
     {:else}
       <div class="flex gap-2 justify-center items-center">
         <div class="text-[40px]">👉</div>
