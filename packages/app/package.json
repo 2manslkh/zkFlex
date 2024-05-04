@@ -37,6 +37,9 @@
 	"dependencies": {
 		"@nouns/assets": "^0.5.0",
 		"@nouns/sdk": "^0.4.0",
+		"@supabase/auth-ui-shared": "^0.1.8",
+		"@supabase/auth-ui-svelte": "^0.2.9",
+		"@supabase/supabase-js": "^2.43.1",
 		"@sveltejs/adapter-vercel": "^5.3.0",
 		"@sveltejs/vite-plugin-svelte": "^3.1.0",
 		"@vitejs/plugin-basic-ssl": "^1.1.0",

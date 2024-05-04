@@ -28,8 +28,8 @@
 <Page>
   <div class="f-center flex-col gap-2 lg:w-[530px]">
     <div class="display-large-medium">ZK CERTIFIED ✅</div>
-    <div class="display-medium">{data.tokenAddress}</div>
-    <div class="body-bold">{data.proof}</div>
+    <!-- <div class="display-medium">{data.tokenAddress}</div> -->
+    <!-- <div class="body-bold">{data.proof}</div> -->
     {#if svgBase64}
       <FlexCard
         card={{ twitterName: data.twitterName, rank: data.rank, tokenName: data.tokenAddress, proofHash: data.hash }} />
