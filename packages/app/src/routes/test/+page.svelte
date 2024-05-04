@@ -27,7 +27,7 @@
     content="Vercel's Frontend Cloud gives developers the frameworks, workflows, and infrastructure to build a faster, more personalized Web." />
 
   <!-- Facebook Meta Tags -->
-  <meta property="og:url" content="https://vercel.com/" />
+  <meta property="og:url" content="https://zkflex.lol/test" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Vercel: Build and deploy the best Web experiences with The Frontend Cloud" />
   <meta
@@ -39,8 +39,8 @@
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta property="twitter:domain" content="vercel.com" />
-  <meta property="twitter:url" content="https://vercel.com/" />
+  <meta property="twitter:domain" content="zkflex.lol" />
+  <meta property="twitter:url" content="https://zkflex.lol/test" />
   <meta name="twitter:title" content="Vercel: Build and deploy the best Web experiences with The Frontend Cloud" />
   <meta
     name="twitter:description"
