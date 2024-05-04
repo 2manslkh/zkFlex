@@ -25,6 +25,9 @@ const config = {
       "$abi": "./src/abi/index.ts",
       "$images/*": "./src/public/images/*",
       "$fonts/*": "./src/public/fonts/*",
+    },
+    prerender: {
+      crawl: true, // Enable prerendering for all pages
     }
   },
 };
