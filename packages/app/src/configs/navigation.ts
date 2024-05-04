@@ -15,4 +15,10 @@ export const NavigationData: INavigation[] = [
     url: '/gallery',
     disabled: false,
   },
+
+  {
+    label: 'Verify',
+    url: '/proof',
+    disabled: false,
+  },
 ];

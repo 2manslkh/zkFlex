@@ -12,7 +12,6 @@ export async function startWatching() {
   if (!isWatching) {
     unWatchAccount = watchAccount(wagmiConfig, {
       onChange(data) {
-        console.log("Account Changed", data);
         account.set(data);
       },
     });
