@@ -7,7 +7,6 @@
   import FlexCard from '$components/FlexCard/FlexCard.svelte';
 
   export let data: PageServerData;
-  console.log('🚀 | data:', data);
 </script>
 
 <svelte:head>
@@ -24,6 +23,7 @@
   <meta name="twitter:title" content="zkFlex | Proof" />
   <meta name="twitter:description" content="My size is size." />
 </svelte:head>
+
 <!-- Body -->
 <Page>
   <div class="f-center flex-col gap-2 lg:w-[530px]">

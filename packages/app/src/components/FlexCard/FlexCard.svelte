@@ -118,8 +118,6 @@
       alignment-baseline="middle">@${twitterName} is a certified</text>
     ${getRankComponent(rank)}
     </svg>`;
-    console.log('🚀 | onMount | svg:', svg);
-    console.log('🚀 | onMount | svgDataUrl:', svgDataUrl);
 
     // Create a new Image element
     // Create a new canvas element

@@ -6,6 +6,7 @@ export const load: RequestHandler = (async (request) => {
     const { params } = request;
     const { slug } = params;
     const response = await fetch(`https://zkflex.onrender.com/${slug}`);
+
     const data = await response.json();
     return data
 })

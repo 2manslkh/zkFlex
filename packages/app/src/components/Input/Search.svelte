@@ -45,7 +45,6 @@
   function handleSelect(item: string) {
     inputValue = item;
     hideDropdown = true;
-    console.log('asd');
     dispatch('search', { address: item });
   }
 
