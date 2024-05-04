@@ -34,7 +34,6 @@
         filtered.push(MOCK_TOKENS[address]);
       }
     }
-    console.log('🚀 | filterRecommendations | filtered:', filtered);
 
     return filtered; // Return null if no match found
   }

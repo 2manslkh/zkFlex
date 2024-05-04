@@ -1,0 +1,1 @@
+export { generateProof as default } from './generateProof';

@@ -159,5 +159,6 @@
 </script>
 
 <div transition:fade={{ delay: 250, duration: 300 }}>
-  <img src={svgDataUrl} alt="gallery" />
+  <!-- <img src={svgDataUrl} alt="gallery" /> -->
+  {@html svg}
 </div>

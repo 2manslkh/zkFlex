@@ -23,7 +23,6 @@ export function getSession() {
 export function startWatching() {
     return supabaseClient.auth.onAuthStateChange(
         (_event, _session) => {
-            console.log(_event, _session)
             session.set(_session);
 
             // if (_session && _session.provider_token) {
@@ -45,7 +44,6 @@ export function startWatching() {
                 twitterUsername.set(_session?.user?.user_metadata?.preferred_username);
                 twitterId.set(_session?.user?.user_metadata?.provider_id);
             } else if (_event === 'SIGNED_OUT') {
-                console.log("🚀 | startWatching | _event:", _event)
                 // handle sign out event
 
                 twitterUsername.set("");
@@ -64,3 +62,6 @@ export function startWatching() {
     );
 }
 
+export function handleSupabaseLogout() {
+    supabaseClient.auth.signOut({ scope: 'global' });
+}
