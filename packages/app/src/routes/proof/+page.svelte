@@ -6,10 +6,6 @@
   import { MetaTags } from 'svelte-meta-tags';
   let inputValue = '';
   // Update recommendations when input value changes
-  function handleInputChange(event: Event) {
-    const target = event.target as HTMLInputElement;
-    inputValue = target.value;
-  }
 
   async function handleVerifyProof() {
     try {
