@@ -52,42 +52,6 @@
   }
 </script>
 
-<MetaTags
-  titleTemplate="zkFlex | Home"
-  description="My size is size."
-  canonical="https://zkflex.lol"
-  openGraph={{
-    url: '"https://zkflex.lol',
-    title: 'zkFlex',
-    description: 'My size is size.',
-    images: [
-      {
-        url: 'https://zkflex.lol/noun/a',
-        width: 800,
-        height: 600,
-        alt: 'Og Image Alt',
-      },
-      {
-        url: 'https://zkflex.lol/noun/a',
-        width: 900,
-        height: 800,
-        alt: 'Og Image Alt Second',
-      },
-      { url: 'https://www.example.ie/og-image-03.jpg' },
-      { url: 'https://www.example.ie/og-image-04.jpg' },
-    ],
-    siteName: 'SiteName',
-  }}
-  twitter={{
-    handle: '@zkflex',
-    site: '@zkflex',
-    cardType: 'summary_large_image',
-    title: 'zkFlex',
-    description: 'My size is size.',
-    image: 'https://zkflex.lol/noun/a',
-    imageAlt: 'size',
-  }} />
-
 <!-- Body -->
 <Page>
   <div class="flex flex-col gap-6 lg:w-[530px] h-full items-center">
