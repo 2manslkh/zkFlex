@@ -78,7 +78,7 @@
   async function saveSvgToSupabase(filename: string, svgData: string) {
     try {
       // Upload SVG to Supabase storage
-      const { data, error } = await supabaseClient.storage.from('ethsydney').upload(`${filename}.svg`, svgData);
+      const { data, error } = await supabaseClient.storage.from('ethsydney').upload(`${filename}.png`, svgData);
 
       if (error) {
         console.error('Error uploading SVG to Supabase:', error.message);
@@ -121,25 +121,43 @@
     console.log('🚀 | onMount | svg:', svg);
     console.log('🚀 | onMount | svgDataUrl:', svgDataUrl);
 
+    // Create a new Image element
+    // Create a new canvas element
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    img.onload = () => {
+      // Set canvas size to match SVG dimensions
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      // Draw SVG onto canvas
+      (ctx as CanvasRenderingContext2D).drawImage(img, 0, 0);
+
+      // Convert canvas to data URL
+      const dataUrl = canvas.toDataURL('image/png');
+
+      // Create a link element
+      const link = document.createElement('a');
+      link.href = dataUrl;
+      link.download = 'fileName';
+      saveSvgToSupabase(proofHash, dataUrl).then(() => {
+        console.log('png saved');
+      });
+      // Programmatically trigger a click event on the link
+      // document.body.appendChild(link);
+      // link.click();
+      // document.body.removeChild(link);
+    };
+
     // Set the Image source to the SVG content
-    saveSvgToSupabase(proofHash, svg).then(() => {
-      console.log('svg saved');
-    });
+    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svg)));
+    // saveSvgToSupabase(proofHash, svg).then(() => {
+    //   console.log('svg saved');
+    // });
   });
-
-  function textToHtml(text: string) {
-    const tempElement = document.createElement('div');
-    tempElement.innerHTML = text;
-    return tempElement.firstChild;
-  }
-
-  const htmlElement = textToHtml(svg);
-
-  // Now you can append `htmlElement` to your document or manipulate it as needed
-  //   document.body.appendChild(htmlElement);
 </script>
 
 <div transition:fade={{ delay: 250, duration: 300 }}>
-  <!-- <img src={htmlElement} alt="gallery" /> -->
-  {@html svg}
+  <img src={svgDataUrl} alt="gallery" />
 </div>
