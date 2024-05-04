@@ -1,20 +1,20 @@
-import { ImageData } from '@nouns/assets';
+// import { ImageData } from '@nouns/assets';
 import { getNounData } from '@nouns/assets';
 import { getNounSeedFromBlockHash } from '@nouns/assets';
 import { buildSVG } from '@nouns/sdk';
 import { zeroHash, keccak256, numberToHex } from 'viem';
 
 
-const { bgcolors, palette, images } = ImageData;
-const { bodies, accessories, heads, glasses } = images;
+// const { bgcolors, palette, images } = ImageData;
+// const { bodies, accessories, heads, glasses } = images;
 
 
 export function generateNounsSVG(hash: string) {
     const seed = getNounSeedFromBlockHash(0, hash);
     const { parts, background } = getNounData(seed);
     console.log("🚀 | generateNounsSVG | background:", background)
-    const svgBinary = buildSVG(parts, palette, background);
-    return { svg: btoa(svgBinary), background };
+    // const svgBinary = buildSVG(parts, palette, background);
+    // return { svg: btoa(svgBinary), background };
 }
 
 

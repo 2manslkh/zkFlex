@@ -9,6 +9,20 @@
   export let data: PageServerData;
 </script>
 
+<svelte:head>
+  <title>zkFlex | Proof</title>
+  <meta
+    property="og:image"
+    content={`https://uxxmxcbidkgoeortjpsx.supabase.co/storage/v1/object/public/ethsydney/${$page.params.slug}.png`} />
+  <meta property="og:title" content="zkFlex | Proof" />
+  <meta property="og:description" content="My size is size." />
+  <meta property="og:url" content="https://zkflex.lol" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="zkFlex | Proof" />
+  <meta name="twitter:description" content="My size is size." />
+</svelte:head>
 <!-- Body -->
 <Page>
   <div class="f-center flex-col gap-2 lg:w-[530px]">

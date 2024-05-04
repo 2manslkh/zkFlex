@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-export const ssr = true;
+// export const ssr = true;
 
 export const load: RequestHandler = (async (request) => {
     // Extract slug parameter from the request
