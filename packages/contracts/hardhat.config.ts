@@ -138,15 +138,33 @@ module.exports = {
       accounts: ACCOUNT,
       saveDeployments: true,
     },
-    base_testnet: {
-      url: 'https://goerli.base.org',
-      chainId: 84531,
+    "base-sepolia": {
+      url: 'https://sepolia.base.org',
+      chainId: 84532,
       accounts: ACCOUNT,
       saveDeployments: true,
     },
     mantle_testnet: {
       url: 'https://rpc.testnet.mantle.xyz',
       chainId: 5001,
+      accounts: ACCOUNT,
+      saveDeployments: true,
+    },
+    mantle: {
+      url: 'https://rpc.mantle.xyz',
+      chainId: 5000,
+      accounts: ACCOUNT,
+      saveDeployments: true,
+    },
+    base: {
+      url: 'https://base.llamarpc.com',
+      chainId: 8453,
+      accounts: ACCOUNT,
+      saveDeployments: true,
+    },
+    polygon: {
+      url: 'https://polygon-bor-rpc.publicnode.com',
+      chainId: 137,
       accounts: ACCOUNT,
       saveDeployments: true,
     },
@@ -226,7 +244,16 @@ module.exports = {
           },
         },
       },
+      {
+        version: '0.6.11',
+        settings: {
+          optimizer: {
+            enabled: true,
+          },
+        },
+      },
     ],
+
   },
   namedAccounts: {
     deployer: {
@@ -241,11 +268,14 @@ module.exports = {
       taiko_testnet: '42069',
       scroll_testnet: '42069',
       mantle_testnet: '42069',
+      mantle: '42069',
       linea_testnet: '42069',
       gnosis_testnet: '42069',
+      base: 'GGSQT9V4DMDC1QW5SNF7JW4G1ZDGR43HQ9',
       celo_testnet: '8NH96QIJ4ZVR6SN7Z89EVA6JIE1JHY16NS',
       sepolia: 'HRPUPRN4G9HKSBWFCCRW7I61C7HJPNKVGD',
       polygonMumbai: '5XUJHBNCVSF2J3F3W865U6ZYNTW2G7Z8WV',
+      polygon: '5XUJHBNCVSF2J3F3W865U6ZYNTW2G7Z8WV',
       base_testnet: 'BEH7Y1KKMYDKNV4416SEV3EQ1PT9AWC4Y8',
       arbitrum_testnet: 'STF7WZSAWCWMECBKQAXMKA79XI8EMFE8CF',
       polygon_zkvm_testnet: 'A5T3GR12B6PYJRGZUMUHAIFG656C9J85BG',
@@ -292,7 +322,31 @@ module.exports = {
         },
       },
       {
-        network: 'base_testnet',
+        network: 'polygon',
+        chainId: 137,
+        urls: {
+          apiURL: 'https://api.polygonscan.com/api',
+          browserURL: 'https://polygonscan.com/',
+        },
+      },
+      {
+        network: 'mantle',
+        chainId: 5000,
+        urls: {
+          apiURL: 'https://explorer.mantle.xyz/api',
+          browserURL: 'https://explorer.mantle.xyz',
+        },
+      },
+      {
+        network: 'base',
+        chainId: 8453,
+        urls: {
+          apiURL: 'https://api.basescan.org/api',
+          browserURL: 'https://basescan.org/',
+        },
+      },
+      {
+        network: 'base-sepolia',
         chainId: 84531,
         urls: {
           apiURL: 'https://api-goerli.basescan.org/api',
