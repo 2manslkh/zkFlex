@@ -26,7 +26,7 @@
 
   <svelte:head>
     <title>zkFlex | Gallery</title>
-    <meta property="og:image" content="https://assets.pancakeswap.finance/web/og/v2/hero.jpg" />
+    <meta property="og:image" content="https://uxxmxcbidkgoeortjpsx.supabase.co/storage/v1/object/public/ethsydney/c8bbd197cf00390f0451e9c46d3b46672905bad48cdcbc5f071f3dba73764c80.png" />
     <meta property="og:title" content="zkFlex | Gallery" />
     <meta property="og:description" content="My size is size." />
     <meta property="og:url" content="https://zkflex.lol" />
