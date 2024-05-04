@@ -109,14 +109,19 @@
               <div>YOU ARE A WHALE 🐋</div>
             </div>
           {/if}
+          {#if holderStatus === 'dolphin'}
+            <div class="flex display-small-medium items-center justify-start gap-4 self-center">
+              <div>You are a shark 🦈</div>
+            </div>
+          {/if}
+          {#if holderStatus === 'dolphin'}
+            <div class="flex display-small-medium items-center justify-start gap-4 self-center">
+              <div>You are a dolphin 🦗</div>
+            </div>
+          {/if}
           {#if holderStatus === 'shrimp'}
             <div class="flex display-large-medium items-center justify-start gap-4 self-center">
               <div>You are a shrimp! 🦐</div>
-            </div>
-          {/if}
-          {#if holderStatus === 'grasshopper'}
-            <div class="flex display-small-medium items-center justify-start gap-4 self-center">
-              <div>You are a grasshopper 🦗</div>
             </div>
           {/if}
           {#if holderStatus === 'ghost'}

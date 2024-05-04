@@ -26,3 +26,10 @@ export type TokenBalance = {
 };
 
 export type FlexType = 'whale' | 'shark' | 'dolphin' | 'shrimp' | 'ghost';
+
+export type FlexCard = {
+    rank: FlexType;
+    twitterName: string;
+    tokenName: string;
+    proofHash: string;
+};

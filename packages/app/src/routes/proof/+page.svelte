@@ -1,8 +1,6 @@
 <script lang="ts">
   import { Page } from '$components/Page';
-
   import { MetaTags } from 'svelte-meta-tags';
-
   let inputValue = '';
   // Update recommendations when input value changes
   function handleInputChange(event: Event) {
