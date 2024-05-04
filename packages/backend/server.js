@@ -59,269 +59,300 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
-
+function verifyTypedSignature(
+    address,
+    signature,
+    message
+  ) {
+    return (
+      address.toLowerCase() ===
+      ethers.utils
+        .verifyTypedData(
+          {
+            name: "ZKFlex",
+            version: "1",
+          },
+          {
+            ZKFlex: [{ name: "message", type: "string" }],
+          },
+          { message: message },
+          signature
+        )
+        .toLowerCase()
+    );
+  }
 app.post("/generate", async (req, res) => {
   try {
     const message = req.body.message;
+    const signature = req.body.signature;
     const address = req.body.address;
     const twitterName = req.body.twitterName;
     const tokenAddress = req.body.tokenAddress
     const symbol = req.body.symbol;
     const price = symbol === 'PEPE' ? 0.000008322  : 0.00002449;
     let value = 0;
-    const provider = new ethers.JsonRpcProvider("https://eth.llamarpc.com");
-    const abi = [
-      {
-          "constant": true,
-          "inputs": [],
-          "name": "name",
-          "outputs": [
-              {
-                  "name": "",
-                  "type": "string"
-              }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-      },
-      {
-          "constant": false,
-          "inputs": [
-              {
-                  "name": "_spender",
-                  "type": "address"
-              },
-              {
-                  "name": "_value",
-                  "type": "uint256"
-              }
-          ],
-          "name": "approve",
-          "outputs": [
-              {
-                  "name": "",
-                  "type": "bool"
-              }
-          ],
-          "payable": false,
-          "stateMutability": "nonpayable",
-          "type": "function"
-      },
-      {
-          "constant": true,
-          "inputs": [],
-          "name": "totalSupply",
-          "outputs": [
-              {
-                  "name": "",
-                  "type": "uint256"
-              }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-      },
-      {
-          "constant": false,
-          "inputs": [
-              {
-                  "name": "_from",
-                  "type": "address"
-              },
-              {
-                  "name": "_to",
-                  "type": "address"
-              },
-              {
-                  "name": "_value",
-                  "type": "uint256"
-              }
-          ],
-          "name": "transferFrom",
-          "outputs": [
-              {
-                  "name": "",
-                  "type": "bool"
-              }
-          ],
-          "payable": false,
-          "stateMutability": "nonpayable",
-          "type": "function"
-      },
-      {
-          "constant": true,
-          "inputs": [],
-          "name": "decimals",
-          "outputs": [
-              {
-                  "name": "",
-                  "type": "uint8"
-              }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-      },
-      {
-          "constant": true,
-          "inputs": [
-              {
-                  "name": "_owner",
-                  "type": "address"
-              }
-          ],
-          "name": "balanceOf",
-          "outputs": [
-              {
-                  "name": "balance",
-                  "type": "uint256"
-              }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-      },
-      {
-          "constant": true,
-          "inputs": [],
-          "name": "symbol",
-          "outputs": [
-              {
-                  "name": "",
-                  "type": "string"
-              }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-      },
-      {
-          "constant": false,
-          "inputs": [
-              {
-                  "name": "_to",
-                  "type": "address"
-              },
-              {
-                  "name": "_value",
-                  "type": "uint256"
-              }
-          ],
-          "name": "transfer",
-          "outputs": [
-              {
-                  "name": "",
-                  "type": "bool"
-              }
-          ],
-          "payable": false,
-          "stateMutability": "nonpayable",
-          "type": "function"
-      },
-      {
-          "constant": true,
-          "inputs": [
-              {
-                  "name": "_owner",
-                  "type": "address"
-              },
-              {
-                  "name": "_spender",
-                  "type": "address"
-              }
-          ],
-          "name": "allowance",
-          "outputs": [
-              {
-                  "name": "",
-                  "type": "uint256"
-              }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-      },
-      {
-          "payable": true,
-          "stateMutability": "payable",
-          "type": "fallback"
-      },
-      {
-          "anonymous": false,
-          "inputs": [
-              {
-                  "indexed": true,
-                  "name": "owner",
-                  "type": "address"
-              },
-              {
-                  "indexed": true,
-                  "name": "spender",
-                  "type": "address"
-              },
-              {
-                  "indexed": false,
-                  "name": "value",
-                  "type": "uint256"
-              }
-          ],
-          "name": "Approval",
-          "type": "event"
-      },
-      {
-          "anonymous": false,
-          "inputs": [
-              {
-                  "indexed": true,
-                  "name": "from",
-                  "type": "address"
-              },
-              {
-                  "indexed": true,
-                  "name": "to",
-                  "type": "address"
-              },
-              {
-                  "indexed": false,
-                  "name": "value",
-                  "type": "uint256"
-              }
-          ],
-          "name": "Transfer",
-          "type": "event"
-      }
-  ]
-    const erc20 = new ethers.Contract(tokenAddress, abi, provider);
-    const balance =  await erc20.balanceOf(address)
-    value = +ethers.formatEther(balance) * price
-
-
-    let rank = 'Shrimp'
-    let threshold = 0
-    if (value > 10000) {
-      rank = 'Dolphin'
-      threshold = 10000
+    if (verifyTypedSignature(address, signature, message)){
+        const provider = new ethers.JsonRpcProvider("https://eth.llamarpc.com");
+        const abi = [
+          {
+              "constant": true,
+              "inputs": [],
+              "name": "name",
+              "outputs": [
+                  {
+                      "name": "",
+                      "type": "string"
+                  }
+              ],
+              "payable": false,
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "constant": false,
+              "inputs": [
+                  {
+                      "name": "_spender",
+                      "type": "address"
+                  },
+                  {
+                      "name": "_value",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "approve",
+              "outputs": [
+                  {
+                      "name": "",
+                      "type": "bool"
+                  }
+              ],
+              "payable": false,
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "constant": true,
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                  {
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "payable": false,
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "constant": false,
+              "inputs": [
+                  {
+                      "name": "_from",
+                      "type": "address"
+                  },
+                  {
+                      "name": "_to",
+                      "type": "address"
+                  },
+                  {
+                      "name": "_value",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                  {
+                      "name": "",
+                      "type": "bool"
+                  }
+              ],
+              "payable": false,
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "constant": true,
+              "inputs": [],
+              "name": "decimals",
+              "outputs": [
+                  {
+                      "name": "",
+                      "type": "uint8"
+                  }
+              ],
+              "payable": false,
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "constant": true,
+              "inputs": [
+                  {
+                      "name": "_owner",
+                      "type": "address"
+                  }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                  {
+                      "name": "balance",
+                      "type": "uint256"
+                  }
+              ],
+              "payable": false,
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "constant": true,
+              "inputs": [],
+              "name": "symbol",
+              "outputs": [
+                  {
+                      "name": "",
+                      "type": "string"
+                  }
+              ],
+              "payable": false,
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "constant": false,
+              "inputs": [
+                  {
+                      "name": "_to",
+                      "type": "address"
+                  },
+                  {
+                      "name": "_value",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "transfer",
+              "outputs": [
+                  {
+                      "name": "",
+                      "type": "bool"
+                  }
+              ],
+              "payable": false,
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "constant": true,
+              "inputs": [
+                  {
+                      "name": "_owner",
+                      "type": "address"
+                  },
+                  {
+                      "name": "_spender",
+                      "type": "address"
+                  }
+              ],
+              "name": "allowance",
+              "outputs": [
+                  {
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "payable": false,
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "payable": true,
+              "stateMutability": "payable",
+              "type": "fallback"
+          },
+          {
+              "anonymous": false,
+              "inputs": [
+                  {
+                      "indexed": true,
+                      "name": "owner",
+                      "type": "address"
+                  },
+                  {
+                      "indexed": true,
+                      "name": "spender",
+                      "type": "address"
+                  },
+                  {
+                      "indexed": false,
+                      "name": "value",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "Approval",
+              "type": "event"
+          },
+          {
+              "anonymous": false,
+              "inputs": [
+                  {
+                      "indexed": true,
+                      "name": "from",
+                      "type": "address"
+                  },
+                  {
+                      "indexed": true,
+                      "name": "to",
+                      "type": "address"
+                  },
+                  {
+                      "indexed": false,
+                      "name": "value",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "Transfer",
+              "type": "event"
+          }
+      ]
+        const erc20 = new ethers.Contract(tokenAddress, abi, provider);
+        const balance =  await erc20.balanceOf(address)
+        value = +ethers.formatEther(balance) * price
+    
+    
+        let rank = 'Ghost'
+        let threshold = 0
+        if (value > 0){
+            rank = 'Shrimp'
+        }
+        if (value > 10000) {
+          rank = 'Dolphin'
+          threshold = 10000
+        }
+        if (value > 100000){
+          rank = 'Whale'
+          threshold = 100000
+        }
+        const rankProof = await generateProof(Math.round(value), threshold);
+        const hash = crypto.createHash('sha256').update(JSON.stringify(rankProof)).digest('hex');
+    
+        await ProofModel.create({
+          rank,
+          hash,
+          twitterName,
+          tokenAddress: symbol,
+          proof: JSON.stringify(rankProof)
+        })
+        res.send({
+          rank,
+          symbol,
+          hash
+        })
+    }else {
+        res.status(500).send({
+            error:"Invalid Signature"
+        })
     }
-    if (value > 100000){
-      rank = 'Whale'
-      threshold = 100000
-    }
-    const rankProof = await generateProof(Math.round(value), threshold);
-    const hash = crypto.createHash('sha256').update(JSON.stringify(rankProof)).digest('hex');
-
-    await ProofModel.create({
-      rank,
-      hash,
-      twitterName,
-      tokenAddress: symbol,
-      proof: JSON.stringify(rankProof)
-    })
-    res.send({
-      rank,
-      symbol,
-      hash
-    })
   } catch (error) {
     console.log(error)
     res.send({
