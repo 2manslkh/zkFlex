@@ -69,6 +69,21 @@ function verifyTypedSignature(
         verifyMessage(message, signature).toLowerCase()
     );
 }
+
+function selectChain(chainId) {
+    switch (chainId) {
+        case "1":
+            return "https://eth.llamarpc.com";
+        case "5000":
+            return "https://1rpc.io/mantle";
+        case "8453":
+            return "https://1rpc.io/base";
+        case "137":
+            return "https://1rpc.io/matic";
+        default:
+            return "https://eth.llamarpc.com";
+    }
+}
 app.post("/generate", async (req, res) => {
     try {
         const message = req.body.message;
@@ -76,11 +91,12 @@ app.post("/generate", async (req, res) => {
         const address = req.body.address;
         const twitterName = req.body.twitterName;
         const tokenAddress = req.body.tokenAddress
+        const chain = req.body.chain.toString();
         const symbol = req.body.symbol;
-        const price = symbol === 'PEPE' ? 0.000008322 : 0.00002449;
+        const price = 1;
         let value = 0;
         if (verifyTypedSignature(address, signature, message)) {
-            const provider = new ethers.JsonRpcProvider("https://eth.llamarpc.com");
+            const provider = new ethers.JsonRpcProvider(selectChain(chain));
             const abi = [
                 {
                     "constant": true,
@@ -313,10 +329,17 @@ app.post("/generate", async (req, res) => {
             if (value > 0) {
                 rank = 'Shrimp'
             }
-            if (value > 10000) {
+
+            if (value > 10) {
                 rank = 'Dolphin'
-                threshold = 10000
+                threshold = 10
             }
+
+            if (value > 1000) {
+                rank = 'Shark'
+                threshold = 1000
+            }
+
             if (value > 100000) {
                 rank = 'Whale'
                 threshold = 100000
