@@ -27,7 +27,9 @@ const config = {
       "$fonts/*": "./src/public/fonts/*",
     },
     prerender: {
-      crawl: true, // Enable prerendering for all pages
+      default: true, // Enable prerendering for all pages
+      crawl: true, // Automatically discover and prerender linked routes
+      entries: ['*'] // Specify entries to prerender; '*' means all routes
     }
   },
 };
