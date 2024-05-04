@@ -2,6 +2,7 @@
   import { Page } from '$components/Page';
   import { generateNounSVGMock } from '$libs/nouns';
   import { onMount } from 'svelte';
+  import { MetaTags } from 'svelte-meta-tags';
 
   let svgBase64 = '';
   let bg = '';
@@ -20,7 +21,6 @@
 </script>
 
 <svelte:head>
-  <title>zkFlex - Gallery</title>
   <meta property="og:title" content="zkFlex" />
   <meta property="og:description" content="Your page description goes here." />
   <meta property="og:image:width" content="1024" />
@@ -32,6 +32,8 @@
   <meta name="twitter:title" content="zkFlex" />
   <meta name="twitter:description" content="Your page description goes here." />
 </svelte:head>
+
+<MetaTags title="zkFlex | Gallery" />
 
 <!-- Body -->
 <Page>
