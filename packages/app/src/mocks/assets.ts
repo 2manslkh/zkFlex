@@ -22,12 +22,12 @@ export const MOCK_TOKENS: TokenList =
     },
     "0x0bd4887f7d41b35cd75dff9ffee2856106f86670":
     {
-        address: "0x0bd4887f7d41b35cd75dff9ffee2856106f86670",
-        name: "Friend.tech (Base)",
-        symbol: "FRIEND",
+        address: "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed",
+        name: "Degen (Base)",
+        symbol: "DEGEN",
         chain: 8453,
         decimals: 18,
-        logoURI: "https://assets.coingecko.com/coins/images/37475/standard/friend.jpeg?1714464901",
+        logoURI: "https://assets.coingecko.com/coins/images/34515/standard/android-chrome-512x512.png?1706198225",
     },
     "0x3845badade8e6dff049820680d1f14bd3903a5d0":
     {
