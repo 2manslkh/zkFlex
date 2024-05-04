@@ -33,7 +33,6 @@
         class="input input-primary p-2 bg-white text-black w-full"
         placeholder="enter proof..."
         bind:value={inputValue} />
-
       <button on:click={handleVerifyProof} class="btn">Verify</button>
     </div>
   </div>

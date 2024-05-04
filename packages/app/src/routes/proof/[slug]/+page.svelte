@@ -5,6 +5,9 @@
   import { draftMessage } from '$libs/twitter';
   import { page } from '$app/stores';
   import FlexCard from '$components/FlexCard/FlexCard.svelte';
+  import Bar from '$components/Bar/Bar.svelte';
+  import { rankToEmojiMap, rankToPointsMap } from '$libs/util/calculateUserStatus';
+  import { draftMessageFarcaster } from '$libs/twitter/draft';
 
   export let data: PageServerData;
 </script>
@@ -32,7 +35,7 @@
 
 <!-- Body -->
 <Page>
-  <div class="f-center flex-col gap-2 lg:w-[530px]">
+  <div class="f-center flex-col gap-2 lg:w-[600px]">
     <div class="display-large-medium">ZK CERTIFIED ✅</div>
     <div class="flex w-full gap-2">
       <textarea class="text-black text-[8px] w-full px-4 py-1 rounded-xl">
@@ -44,7 +47,12 @@
 
     <FlexCard
       card={{ twitterName: data.twitterName, rank: data.rank, tokenName: data.tokenAddress, proofHash: data.hash }} />
-
-    <a class="btn" href={draftMessage($page.url.toString())}>Share on X</a>
+    <div class="flex w-full gap-4">
+      {rankToEmojiMap(data.rank)} = less than or equal to {rankToPointsMap(data.rank)} tokens owned
+    </div>
+    <div>
+      <a class="btn" href={draftMessage($page.url.toString())}>Share on X</a>
+      <a class="btn" href={draftMessageFarcaster($page.url.toString())}>Share on Warpcast</a>
+    </div>
   </div>
 </Page>

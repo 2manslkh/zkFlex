@@ -16,3 +16,33 @@ export function calculateUserRank(assetBalance: string): FlexType {
     }
     return holderStatus;
 }
+
+export function rankToEmojiMap(rank: FlexType) {
+    switch (rank) {
+        case 'shrimp':
+            return '🦐';
+        case 'dolphin':
+            return '🐬';
+        case 'shark':
+            return '🦈';
+        case 'whale':
+            return '🐋';
+        default:
+            return '👻';
+    }
+}
+
+export function rankToPointsMap(rank: FlexType) {
+    switch (rank) {
+        case 'shrimp':
+            return 1;
+        case 'dolphin':
+            return 10;
+        case 'shark':
+            return 1000;
+        case 'whale':
+            return 100000;
+        default:
+            return 0;
+    }
+}
