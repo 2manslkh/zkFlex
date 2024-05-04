@@ -1,9 +1,6 @@
 <script lang="ts">
   import type { FlexCard } from '$types';
-  import pepe from '$images/pepe.svg';
   import { onMount } from 'svelte';
-  import { generateNounsSVG } from '$libs/nouns';
-  import { trimHash } from '$libs/util/hash';
   import { fade } from 'svelte/transition';
   import { supabaseClient } from '$libs/supabase';
   import { base64_londrina_solid_font, base64_pepe_svg } from '$const';
@@ -16,8 +13,10 @@
   let pepeBase64 = base64_pepe_svg;
   let svg = '';
 
-  function handleGenerate(hash: string) {
-    let { svg, background } = generateNounsSVG(trimHash(hash));
+  async function handleGenerate(hash: string) {
+    // let { svg, background } = generateNounsSVG(trimHash(hash));
+    let response = await fetch(`/noun/${proofHash}`);
+    let { svg, background } = await response.json();
     svgBase64 = svg;
     bg = background;
   }
@@ -90,8 +89,8 @@
     }
   }
   let svgDataUrl = '';
-  onMount(() => {
-    handleGenerate(proofHash);
+  onMount(async () => {
+    await handleGenerate(proofHash);
 
     svg = `<svg
     id="${proofHash}"
