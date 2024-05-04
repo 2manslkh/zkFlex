@@ -12,7 +12,7 @@
     <div class="title-screen-bold">zkFlex💪</div>
   </a>
   <!-- Middle Section -->
-  <div class="flex items-center justify-center h-10 gap-2 lg:gap-8 body-bold">
+  <div class="hidden md:flex items-center justify-center h-10 gap-2 lg:gap-8 body-bold">
     {#each NavigationData as data}
       <a href={data.url} class="w-fit whitespace-nowrap">{data.label}</a>
     {/each}
@@ -25,7 +25,7 @@
       <a class="" href={TELEGRAM_URL} target="_blank">Telegram</a>
       <a class="" href={TWITTER_URL} target="_blank">Twitter</a>
     </div>
-    <div class="hidden lg:flex">
+    <div class="hidden md:flex">
       <ConnectWalletButton />
     </div>
   </div>

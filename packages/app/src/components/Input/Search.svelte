@@ -3,6 +3,7 @@
   import { readable, writable } from 'svelte/store';
   import { MOCK_TOKENS } from '../../mocks';
   import type { Token } from '$types';
+  import { shortenAddress } from '$libs/util/shortenAddress';
 
   const dispatch = createEventDispatcher();
 
@@ -15,12 +16,6 @@
 
   // Function to filter recommendations based on input value
   function filterRecommendations(value: string) {
-    // const mockRecommendationsAddresses = mockRecommendations.map((item) => item.address);
-    // const filtered = mockRecommendationsAddresses.filter((item) => item.toLowerCase().includes(value.toLowerCase()));
-    // const filtered = mockRecommendations.filter((item) =>
-    //   item.address.toLowerCase().includes(value.address.toLowerCase()),
-    // );
-
     let searchTerm = value.toLowerCase();
     let filtered = [];
     for (const [address, token] of Object.entries(MOCK_TOKENS)) {
@@ -82,7 +77,7 @@
                 </div>
               </div>
               {recommendation.name}
-              {recommendation.address}
+              {shortenAddress(recommendation.address, 10, 8)}
             </div></button>
         </li>
       {/each}

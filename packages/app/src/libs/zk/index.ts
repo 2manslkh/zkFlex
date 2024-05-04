@@ -1,1 +1,2 @@
-export { generateProof as default } from './generateProof';
+export * from './generateProof';
+export * from './verifyProof';

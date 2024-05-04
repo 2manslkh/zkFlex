@@ -26,12 +26,6 @@ export const MOCK_CARDS: FlexCard[] = [
         proofHash: '0x0000000000000000000000000000000000000000000000000000000000000003'
     },
     {
-        rank: 'ghost',
-        twitterName: "ghostbutnotlarp",
-        tokenName: "PEPE",
-        proofHash: '0x0000000000000000000000000000000000000000000000000000000000000004'
-    },
-    {
         rank: 'whale',
         twitterName: "0xVEER",
         tokenName: "ETH",

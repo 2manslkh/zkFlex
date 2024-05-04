@@ -2,8 +2,6 @@
   import { FlexCard } from '$components/FlexCard';
   import type { FlexCard as FlexCardType } from '$types';
   import { Page } from '$components/Page';
-  import { generateNounSVGMock } from '$libs/nouns';
-  import { onMount } from 'svelte';
   import { MetaTags } from 'svelte-meta-tags';
   import { MOCK_CARDS } from '../../mocks/users';
   import { keccak256, numberToHex } from 'viem';

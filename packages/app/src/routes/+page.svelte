@@ -1,9 +1,8 @@
 <script lang="ts">
   import Search from '$components/Input/Search.svelte';
   import { Page } from '$components/Page';
-  import { redirect } from '@sveltejs/kit';
-  import type { FlexType, Token } from '$types';
-  import { formatEther, parseEther, signatureToCompactSignature } from 'viem';
+  import type { FlexType } from '$types';
+  import { formatEther } from 'viem';
   import TwitterLogo from '$images/twitter.png';
   import { MOCK_TOKENS, MOCK_BALANCES } from '$mocks';
   import { account, token } from '$stores/stores';
@@ -19,7 +18,7 @@
   import { shortenAddress } from '$libs/util/shortenAddress';
   import sizeissize from '$images/yoursizeisnotsize.png';
   import { fade } from 'svelte/transition';
-  import generateProof from '$libs/zk';
+  import { generateProof } from '$libs/zk';
 
   let searching = false;
   let assetBalance: string = '0';
@@ -59,7 +58,7 @@
 <Page>
   <div class="flex flex-col gap-6 lg:w-[530px] h-full items-center">
     <div class="f-center flex-col gap-2 pb-2 pt-10">
-      <div class="display-large-medium">zkFlex💪💪💰</div>
+      <div class="display-large-medium">zkFlex💪</div>
       {#if !$token}
         <img transition:fade={{ delay: 250, duration: 300 }} src={sizeissize} alt="doknwon" />
       {/if}
@@ -82,10 +81,15 @@
               <img class="size-8 avatar rounded-xl" src={TwitterLogo} alt="twitter-logo" />
               <div class="flex items-center">{$twitterUsername}</div>
             </div>
-            <button class="btn absolute right-0 bg-transparent rounded-full body-bold" on:click={handleSupabaseLogout}
+            <button
+              class="hidden md:block btn absolute right-0 bg-transparent rounded-full body-bold"
+              on:click={handleSupabaseLogout}
               >Logout
             </button>
           </div>
+          <button class="block md:hidden btn bg-transparent rounded-full body-bold" on:click={handleSupabaseLogout}
+            >Logout
+          </button>
         </div>
 
         <!-- Buttons -->

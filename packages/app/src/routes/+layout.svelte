@@ -70,10 +70,11 @@
 <Responsiveness />
 <WalletConnect />
 
-<div class="flex flex-col relative top-0 w-full items-center justify-center bg-base-300 border-b border-b-black">
+<div
+  class="flex flex-col relative top-0 w-full items-center justify-center bg-base-300 border-b border-b-black min-w-[330px]">
   <TopNavBar />
 </div>
-<div class="flex flex-col justify-between h-screen">
+<div class="flex flex-col justify-between h-screen min-w-[330px]">
   <slot />
   <!-- Footer -->
   <div class=" flex flex-col w-full items-center justify-center">
