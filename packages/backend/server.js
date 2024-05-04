@@ -7,7 +7,7 @@ import bodyParser from "body-parser";
 import { gql, GraphQLClient } from 'graphql-request'
 import { generateProof } from "./zk-snarks.js";
 import { Web3Storage, getFilesFromPath, File } from 'web3.storage'
-import { ethers } from "ethers";
+import { ethers, verifyTypedData } from "ethers";
 import { connectDB } from "./config/db.js";
 import ProofModel from "./models/Proof.model.js";
 import crypto from 'crypto'
@@ -66,8 +66,7 @@ function verifyTypedSignature(
   ) {
     return (
       address.toLowerCase() ===
-      ethers.utils
-        .verifyTypedData(
+      verifyTypedData(
           {
             name: "ZKFlex",
             version: "1",
@@ -77,8 +76,7 @@ function verifyTypedSignature(
           },
           { message: message },
           signature
-        )
-        .toLowerCase()
+        ).toLowerCase()
     );
   }
 app.post("/generate", async (req, res) => {
