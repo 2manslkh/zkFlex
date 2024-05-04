@@ -16,6 +16,7 @@ export async function generateProof(): Promise<any> {
             twitterName: get(twitterUsername),
             address: get(account).address,
             signature: signature,
+            chain: get(account).chainId,
             tokenAddress: get(token).address,
             symbol: get(token).symbol,
         };
