@@ -25,7 +25,7 @@
   });
 </script>
 
-<Metatags />
+<!-- <Metatags /> -->
 <!-- Comment to Disable WEB3 (Requires PUBLIC_WALLETCONNECT_PROJECT_ID to work) -->
 {#if PUBLIC_WALLETCONNECT_PROJECT_ID}
   <WalletConnect />

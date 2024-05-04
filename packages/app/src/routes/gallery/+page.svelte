@@ -5,6 +5,7 @@
   import { MetaTags } from 'svelte-meta-tags';
   import { MOCK_CARDS } from '../../mocks/users';
   import { keccak256, numberToHex } from 'viem';
+  import { page } from '$app/stores';
 
   let cards: FlexCardType[] = MOCK_CARDS;
   $: cards;
@@ -22,20 +23,20 @@
 </script>
 
 <!-- <MetaTags title="zkFlex | Gallery" /> -->
-<svelte:head>
-  <meta property="og:title" content="zkFlex" />
-  <meta property="og:description" content="My size is size." />
-  <meta property="og:image" content="https://zkflex.lol/noun/a" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="600" />
-  <meta property="og:url" content="https://zkflex.lol" />
-  <meta property="og:type" content="website" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="zkFlex" />
-  <meta name="twitter:description" content="My size is size." />
-  <meta name="twitter:image" content="https://zkflex.lol/noun/a" />
-</svelte:head>
+  <svelte:head>
+    <title>zkFlex | Gallery</title>
+    <meta property="og:title" content="zkFlex" />
+    <meta property="og:description" content="My size is size." />
+    <meta property="og:image" content="https://zkflex.lol/noun/a" />
+    <meta property="og:url" content="https://zkflex.lol" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="zkFlex" />
+    <meta name="twitter:description" content="My size is size." />
+    <meta name="twitter:image" content="https://zkflex.lol/noun/a" />
+  </svelte:head>
 <!-- Body -->
 <Page>
   <div class="f-center flex-col self-start gap-5">

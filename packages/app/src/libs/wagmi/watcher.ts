@@ -21,6 +21,6 @@ export async function startWatching() {
 }
 
 export function stopWatching() {
-  unWatchAccount();
+  // unWatchAccount();
   isWatching = false;
 }
