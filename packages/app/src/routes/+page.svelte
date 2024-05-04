@@ -12,7 +12,7 @@
   import { SupabaseLogin } from '$components/Supabase';
   import { twitterUsername } from '$stores/supabase';
   import { handleSupabaseLogout, supabaseClient } from '$libs/supabase';
-  import { createConfig, getAccount, getBalance, signMessage, switchChain } from '@wagmi/core';
+  import { createConfig, getAccount, getBalance, getToken, signMessage, switchChain } from '@wagmi/core';
   import { wagmiConfig } from '$libs/wagmi';
   import { calculateUserRank } from '$libs/util/calculateUserStatus';
   import { shortenAddress } from '$libs/util/shortenAddress';
@@ -24,15 +24,40 @@
   let assetBalance: string = '0';
 
   let holderStatus: FlexType = 'ghost';
-
   $: holderStatus = calculateUserRank(assetBalance);
+
+  let manual = false;
 
   async function handleSearch(event: any) {
     $token = MOCK_TOKENS[event.detail.address];
     searching = true;
 
-    // Get chain of token
-    const chain = $token.chain;
+    // Get chain of token, default to mantle
+    let chain;
+
+    if ($token?.chain) {
+      chain = $token.chain;
+      manual = false;
+    } else {
+      chain = 5000;
+      // read token from chain
+      let name = 'Unknown';
+      let symbol = 'UNK';
+      let address = event.detail.address;
+      let decimals = 18;
+
+      let _fetchToken = await getToken(wagmiConfig, { address: address });
+
+      token.set({
+        name: _fetchToken.name || 'Unknown',
+        symbol: _fetchToken.symbol || 'UNK',
+        address: address,
+        decimals: decimals,
+        logoURI: '',
+        chain: 1,
+      });
+      manual = true;
+    }
 
     // Hack switch rpc based n chain
     await switchChain(wagmiConfig, { chainId: chain });
@@ -103,6 +128,7 @@
           </div>
         </div>
         <Search on:search={handleSearch} />
+
         {#if searching}
           <div class="loading loading-spinner" />
         {/if}
@@ -114,11 +140,11 @@
               <div>Token:</div>
               <div class="avatar">
                 <div class="size-4 rounded-full">
-                  <img src={$token.logoURI} alt="logo" />
+                  <img src={$token?.logoURI} alt="logo" />
                 </div>
               </div>
-              <div>{$token.name}</div>
-              <div>{$token.address}</div>
+              <div>{$token?.name}</div>
+              <div>{$token?.address}</div>
             </div>
             <!-- Balance -->
             <div class="flex body-bold items-center justify-start gap-4">

@@ -18,6 +18,7 @@ export function calculateUserRank(assetBalance: string): FlexType {
 }
 
 export function rankToEmojiMap(rank: FlexType) {
+    rank = rank.toLowerCase() as FlexType;
     switch (rank) {
         case 'shrimp':
             return '🦐';
@@ -33,6 +34,8 @@ export function rankToEmojiMap(rank: FlexType) {
 }
 
 export function rankToPointsMap(rank: FlexType) {
+    rank = rank.toLowerCase() as FlexType;
+
     switch (rank) {
         case 'shrimp':
             return 1;
