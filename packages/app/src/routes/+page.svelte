@@ -12,7 +12,7 @@
   import { SupabaseLogin } from '$components/Supabase';
   import { twitterUsername } from '$stores/supabase';
   import { handleSupabaseLogout, supabaseClient } from '$libs/supabase';
-  import { createConfig, getAccount, getBalance, signMessage } from '@wagmi/core';
+  import { createConfig, getAccount, getBalance, signMessage, switchChain } from '@wagmi/core';
   import { wagmiConfig } from '$libs/wagmi';
   import { calculateUserRank } from '$libs/util/calculateUserStatus';
   import { shortenAddress } from '$libs/util/shortenAddress';
@@ -30,6 +30,13 @@
   async function handleSearch(event: any) {
     $token = MOCK_TOKENS[event.detail.address];
     searching = true;
+
+    // Get chain of token
+    const chain = $token.chain;
+
+    // Hack switch rpc based n chain
+    await switchChain(wagmiConfig, { chainId: chain });
+
     const balance = await getBalance(wagmiConfig, {
       token: event.detail.address,
       address: $account.address as any,
@@ -42,7 +49,6 @@
     searching = true;
     let data = await generateProof();
     searching = false;
-    console.log('🚀 | handleGenerateProof | data:', data);
 
     if (data.hash) {
       goto('/proof/' + data.hash);

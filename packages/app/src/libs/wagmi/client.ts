@@ -3,12 +3,12 @@ import { createConfig, getAccount, getPublicClient, http, reconnect } from '@wag
 import type { Chain } from 'viem';
 
 import { PUBLIC_WALLETCONNECT_PROJECT_ID } from '$env/static/public';
-import { base, mainnet } from 'viem/chains';
+import { base, mainnet, mantle, polygon } from 'viem/chains';
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi';
 
 const projectId = PUBLIC_WALLETCONNECT_PROJECT_ID;
 
-const chains: [Chain, ...Chain[]] = [mainnet];
+const chains: [Chain, ...Chain[]] = [mainnet, mantle, base, polygon];
 
 export type ValidChainIds = number;
 

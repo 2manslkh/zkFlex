@@ -62,6 +62,11 @@
       class="input input-primary bg-white text-black w-full"
       placeholder="Search Token"
       bind:value={inputValue}
+      on:keydown={(e) => {
+        if (e.key === 'Enter') {
+          handleSelect(inputValue);
+        }
+      }}
       on:input={handleInputChange} />
     <ul
       class=" flex dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-full {hideDropdown

@@ -4,6 +4,7 @@
   import { fade } from 'svelte/transition';
   import { supabaseClient } from '$libs/supabase';
   import { base64_londrina_solid_font, base64_pepe_svg } from '$const';
+  import { trimHash } from '$libs/util/hash';
 
   export let card: FlexCard;
   let { proofHash, twitterName, rank, tokenName } = card;
@@ -15,7 +16,7 @@
 
   async function handleGenerate(hash: string) {
     // let { svg, background } = generateNounsSVG(trimHash(hash));
-    let response = await fetch(`/noun/${proofHash}`);
+    let response = await fetch(`/noun/${trimHash(proofHash)}`);
     let { svg, background } = await response.json();
     svgBase64 = svg;
     bg = background;

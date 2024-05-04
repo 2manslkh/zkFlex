@@ -7,6 +7,7 @@
   import FlexCard from '$components/FlexCard/FlexCard.svelte';
 
   export let data: PageServerData;
+  console.log('🚀 | data:', data);
 </script>
 
 <svelte:head>
