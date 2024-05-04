@@ -41,8 +41,7 @@
 <!-- Body -->
 <Page>
   <div class="f-center flex-col gap-2 lg:w-[530px]">
-    <div class="display-medium">{data.tokenAddress}</div>
-    <div class="body-bold">{data.proof}</div>
+    <!-- <div class="body-bold">{data.proof}</div> -->
     {#if svgBase64}
     <div>
       <!-- <img src={`data:image/svg+xml;base64,${svgBase64}`} alt="gallery" /> -->
@@ -71,7 +70,7 @@
         {/if}
         {#if data.rank.toLowerCase() === 'shrimp'}
         <text
-        x="180"
+        x="100"
         y="240"
         text-anchor="right"
         fill="black"

@@ -6,6 +6,7 @@
   import { Footer } from '$components/Footer';
   import { Toasts } from '$components/Toast';
   import { startWatching, stopWatching } from '$libs/wagmi';
+  import {startWatching as startWatchingX } from '$libs/supabase'
   import { WalletConnect } from '$components/Web3';
   import { PUBLIC_WALLETCONNECT_PROJECT_ID } from '$env/static/public';
 
@@ -15,6 +16,7 @@
     const theme = localStorage.getItem('theme');
     document.documentElement.setAttribute('data-theme', 'dark'); // Set default theme
     startWatching();
+    startWatchingX()
   });
 
   onDestroy(() => {

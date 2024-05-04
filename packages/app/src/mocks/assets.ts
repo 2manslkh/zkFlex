@@ -18,22 +18,22 @@ export const MOCK_TOKENS: TokenList =
         decimals: 18,
         logoURI: "https://assets.coingecko.com/coins/images/11939/standard/shiba.png?1696511800",
     },
-    "0xdac17f958d2ee523a2206206994597c13d831ec7":
-    {
-        address: "0xdac17f958d2ee523a2206206994597c13d831ec7",
-        name: "Tether USD",
-        symbol: "USDT",
-        decimals: 6,
-        logoURI: "https://assets.coingecko.com/coins/images/325/standard/Tether.png?1696501661",
-    },
-    "0x5e6b6d9abad9093fdc861ea1600eba1b355cd940":
-    {
-        address: "0x5e6b6d9abad9093fdc861ea1600eba1b355cd940",
-        name: "Dogecoin",
-        symbol: "DOGE",
-        decimals: 8,
-        logoURI: "https://assets.coingecko.com/coins/images/5/standard/dogecoin.png?1696501409",
-    },
+    // "0xdac17f958d2ee523a2206206994597c13d831ec7":
+    // {
+    //     address: "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    //     name: "Tether USD",
+    //     symbol: "USDT",
+    //     decimals: 6,
+    //     logoURI: "https://assets.coingecko.com/coins/images/325/standard/Tether.png?1696501661",
+    // },
+    // "0x5e6b6d9abad9093fdc861ea1600eba1b355cd940":
+    // {
+    //     address: "0x5e6b6d9abad9093fdc861ea1600eba1b355cd940",
+    //     name: "Dogecoin",
+    //     symbol: "DOGE",
+    //     decimals: 8,
+    //     logoURI: "https://assets.coingecko.com/coins/images/5/standard/dogecoin.png?1696501409",
+    // },
 }
 
 

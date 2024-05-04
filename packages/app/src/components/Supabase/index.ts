@@ -1,0 +1,1 @@
+export { default as SupabaseLogin } from './SupabaseLogin.svelte';

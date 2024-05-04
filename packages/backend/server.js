@@ -64,6 +64,7 @@ app.post("/generate", async (req, res) => {
   try {
     const message = req.body.message;
     const address = req.body.address;
+    const twitterName = req.body.twitterName;
     const tokenAddress = req.body.tokenAddress
     const symbol = req.body.symbol;
     const price = symbol === 'PEPE' ? 0.000008322  : 0.00002449;
@@ -312,6 +313,7 @@ app.post("/generate", async (req, res) => {
     await ProofModel.create({
       rank,
       hash,
+      twitterName,
       tokenAddress: symbol,
       proof: JSON.stringify(rankProof)
     })
