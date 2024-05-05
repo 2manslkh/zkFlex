@@ -29,9 +29,9 @@ export const MOCK_TOKENS: TokenList =
         decimals: 18,
         logoURI: "https://assets.coingecko.com/coins/images/34515/standard/android-chrome-512x512.png?1706198225",
     },
-    "0x3845badade8e6dff049820680d1f14bd3903a5d0":
+    "0xbbba073c31bf03b8acf7c28ef0738decf3695683":
     {
-        address: "0x3845badade8e6dff049820680d1f14bd3903a5d0",
+        address: "0xbbba073c31bf03b8acf7c28ef0738decf3695683",
         name: "The Sandbox (Polygon)",
         symbol: "SAND",
         chain: 137,
